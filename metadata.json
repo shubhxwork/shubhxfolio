@@ -1,0 +1,9 @@
+
+{
+  "name": "shubh.creates - UI/UX & Video Design",
+  "description": "High-end portfolio for shubh.creates, specializing in UI/UX, app development, and cinematic video editing with a red & black aesthetic.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

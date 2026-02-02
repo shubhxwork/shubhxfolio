@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shubh.creates | Visual Experience Designer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --accent-red: #ff3333;
+        --bg-dark: #050505;
+        --text-white: #ffffff;
+        --border-glass: rgba(255, 255, 255, 0.05);
+      }
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-white);
+        cursor: none;
+        overflow-x: hidden;
+      }
+      .font-serif {
+        font-family: 'Playfair Display', serif;
+      }
+      ::selection {
+        background-color: var(--accent-red);
+        color: white;
+      }
+      /* Noise texture overlay */
+      .bg-noise {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        opacity: 0.04;
+        z-index: 9999;
+        pointer-events: none;
+        background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+      }
+      
+      /* Custom Smooth Cursor */
+      * {
+        cursor: none;
+      }
+      
+      .cursor-dot {
+        width: 8px; 
+        height: 8px; 
+        background: linear-gradient(45deg, var(--accent-red), #ff6b6b);
+        position: fixed; 
+        pointer-events: none; 
+        z-index: 10000;
+        border-radius: 50%; 
+        transform: translate(-50%, -50%);
+        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 0 20px rgba(255, 51, 51, 0.6), 0 0 40px rgba(255, 51, 51, 0.3);
+        mix-blend-mode: screen;
+      }
+      
+      .cursor-outline {
+        width: 40px; 
+        height: 40px; 
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        position: fixed; 
+        pointer-events: none; 
+        z-index: 9999;
+        border-radius: 50%; 
+        transform: translate(-50%, -50%);
+        transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.05);
+      }
+      
+      .cursor-outline::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: conic-gradient(from 0deg, transparent, rgba(255, 51, 51, 0.3), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        animation: rotate 3s linear infinite;
+      }
+      
+      .cursor-outline span {
+        font-size: 0;
+        font-weight: 900;
+        color: white;
+        letter-spacing: 0.2em;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        z-index: 1;
+      }
+      
+      /* Cursor Hover States */
+      .hovered .cursor-dot { 
+        transform: translate(-50%, -50%) scale(0.3);
+        background: linear-gradient(45deg, white, #f0f0f0);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.4);
+      }
+      
+      .hovered .cursor-outline { 
+        width: 80px; 
+        height: 80px; 
+        border-color: var(--accent-red); 
+        background: rgba(255, 51, 51, 0.1);
+        box-shadow: 0 0 40px rgba(255, 51, 51, 0.3);
+        border-width: 3px;
+      }
+      
+      .hovered .cursor-outline::before {
+        opacity: 1;
+      }
+      
+      /* View Mode */
+      .view-mode .cursor-dot { 
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+      }
+      
+      .view-mode .cursor-outline { 
+        width: 120px; 
+        height: 120px;
+        border-color: var(--accent-red); 
+        background: rgba(255, 51, 51, 0.15); 
+        box-shadow: 0 0 60px rgba(255, 51, 51, 0.5);
+        border-width: 4px;
+        animation: pulse-cursor 2s infinite;
+      }
+      
+      .view-mode .cursor-outline::before {
+        opacity: 1;
+        animation: rotate 2s linear infinite;
+      }
+      
+      .view-mode .cursor-outline span { 
+        font-size: 12px;
+        color: white;
+        transform: scale(1);
+        opacity: 1;
+      }
+      
+      /* Click Effect */
+      .click-effect .cursor-dot {
+        transform: translate(-50%, -50%) scale(3);
+        background: radial-gradient(circle, var(--accent-red), transparent);
+        box-shadow: 0 0 50px rgba(255, 51, 51, 1);
+      }
+      
+      .click-effect .cursor-outline {
+        animation: click-ripple 0.6s ease-out;
+      }
+      
+      /* Cursor Animations */
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      @keyframes pulse-cursor {
+        0%, 100% { 
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+        50% { 
+          transform: translate(-50%, -50%) scale(1.1);
+          opacity: 0.8;
+        }
+      }
+      
+      @keyframes click-ripple {
+        0% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(2);
+          opacity: 0;
+        }
+      }
+
+      /* Animation Utilities */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive improvements */
+      @media (max-width: 640px) {
+        .cursor-dot, .cursor-outline {
+          display: none !important;
+        }
+        
+        /* Improve touch targets */
+        button, a {
+          min-height: 44px;
+        }
+        
+        /* Better text scaling */
+        html {
+          -webkit-text-size-adjust: 100%;
+        }
+        
+        /* Prevent horizontal scroll */
+        body {
+          overflow-x: hidden;
+        }
+      }
+
+      /* Respect user's motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          transition: opacity 0.3s ease;
+          transform: none;
+        }
+        .animate-marquee {
+          animation: none;
+        }
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(25px);
+        border: 1px solid var(--border-glass);
+      }
+      
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 40s linear infinite;
+      }
+      
+      .aurora {
+        position: absolute;
+        width: 60vw; height: 60vw;
+        background: radial-gradient(circle, rgba(255, 51, 51, 0.08) 0%, transparent 70%);
+        filter: blur(120px);
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      /* Text Masking */
+      .text-mask {
+        -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+        color: transparent;
+        transition: all 0.5s ease;
+      }
+      .text-mask:hover {
+        -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+        color: white;
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react/": "https://esm.sh/react@19.0.0/",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-router-dom": "https://esm.sh/react-router-dom@7.1.3?deps=react@19.0.0,react-dom@19.0.0",
+    "framer-motion": "https://esm.sh/framer-motion@11.11.17?deps=react@19.0.0,react-dom@19.0.0",
+    "@google/genai": "https://esm.sh/@google/genai@1.3.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="bg-noise"></div>
+    <div id="cursor-dot" class="cursor-dot hidden md:block"></div>
+    <div id="cursor-outline" class="cursor-outline hidden md:block">
+      <span id="cursor-text">VIEW</span>
+    </div>
+    <div id="root"></div>
+    <script>
+      const dot = document.getElementById('cursor-dot');
+      const outline = document.getElementById('cursor-outline');
+      const cursorText = document.getElementById('cursor-text');
+      let mouseX = 0, mouseY = 0;
+      let dotX = 0, dotY = 0;
+      let outlineX = 0, outlineY = 0;
+      let isClicking = false;
+
+      // Enhanced mouse tracking with velocity
+      let lastMouseX = 0, lastMouseY = 0;
+      let velocityX = 0, velocityY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Calculate velocity for dynamic effects
+        velocityX = mouseX - lastMouseX;
+        velocityY = mouseY - lastMouseY;
+        lastMouseX = mouseX;
+        lastMouseY = mouseY;
+        
+        // Add velocity-based scaling
+        const velocity = Math.sqrt(velocityX * velocityX + velocityY * velocityY);
+        const scale = Math.min(1 + velocity * 0.01, 1.5);
+        dot.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      });
+
+      // Smooth cursor animation with easing
+      const animateCursor = () => {
+        // Smooth dot movement
+        dotX += (mouseX - dotX) * 0.3;
+        dotY += (mouseY - dotY) * 0.3;
+        dot.style.left = `${dotX}px`;
+        dot.style.top = `${dotY}px`;
+
+        // Slower outline for trailing effect
+        outlineX += (mouseX - outlineX) * 0.15;
+        outlineY += (mouseY - outlineY) * 0.15;
+        outline.style.left = `${outlineX}px`;
+        outline.style.top = `${outlineY}px`;
+
+        requestAnimationFrame(animateCursor);
+      };
+      animateCursor();
+
+      // Enhanced hover effects with magnetic behavior
+      document.addEventListener('mouseover', (e) => {
+        const target = e.target.closest('a, button, .clickable, .project-card');
+        if (target) {
+          document.body.classList.add('hovered');
+          
+          // Magnetic effect for buttons
+          if (target.tagName === 'BUTTON' || target.tagName === 'A') {
+            const rect = target.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const distance = Math.sqrt(Math.pow(mouseX - centerX, 2) + Math.pow(mouseY - centerY, 2));
+            
+            if (distance < 100) {
+              const pullStrength = (100 - distance) / 100 * 20;
+              const pullX = (centerX - mouseX) * pullStrength * 0.01;
+              const pullY = (centerY - mouseY) * pullStrength * 0.01;
+              target.style.transform = `translate(${pullX}px, ${pullY}px)`;
+            }
+          }
+          
+          if (target.classList.contains('project-card')) {
+            document.body.classList.add('view-mode');
+            cursorText.innerText = target.dataset.cursor || 'VIEW';
+          }
+        } else {
+          document.body.classList.remove('hovered', 'view-mode');
+          // Reset magnetic effect
+          document.querySelectorAll('button, a').forEach(el => {
+            el.style.transform = '';
+          });
+        }
+      });
+
+      // Click effects
+      document.addEventListener('mousedown', () => {
+        isClicking = true;
+        document.body.classList.add('click-effect');
+        
+        // Create ripple effect
+        const ripple = document.createElement('div');
+        ripple.style.cssText = `
+          position: fixed;
+          left: ${mouseX}px;
+          top: ${mouseY}px;
+          width: 20px;
+          height: 20px;
+          background: radial-gradient(circle, rgba(255,51,51,0.6), transparent);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          pointer-events: none;
+          z-index: 9997;
+          animation: ripple-expand 0.6s ease-out forwards;
+        `;
+        document.body.appendChild(ripple);
+        
+        setTimeout(() => ripple.remove(), 600);
+      });
+
+      document.addEventListener('mouseup', () => {
+        isClicking = false;
+        document.body.classList.remove('click-effect');
+      });
+
+      // Add ripple animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes ripple-expand {
+          0% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 1;
+          }
+          100% {
+            transform: translate(-50%, -50%) scale(4);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Intersection Observer for reveal animations
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.15 });
+
+      const checkReveals = () => {
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+      };
+      
+      document.addEventListener('DOMContentLoaded', checkReveals);
+      const observer = new MutationObserver(checkReveals);
+      observer.observe(document.body, { childList: true, subtree: true });
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
