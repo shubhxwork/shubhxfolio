@@ -29,30 +29,43 @@ const UXPrinciples: React.FC = () => {
           {UX_LAWS.map((law, index) => (
             <div 
               key={law.title} 
-              className="reveal p-8 sm:p-16 bg-black hover:bg-zinc-950 transition-colors group relative overflow-hidden text-left"
+              className="reveal p-8 sm:p-16 bg-black hover:bg-zinc-950 transition-all duration-500 group relative overflow-hidden text-left hover-lift"
+              style={{ 
+                animationDelay: `${index * 100}ms`,
+                animation: 'slideInUp 0.6s ease-out forwards'
+              }}
             >
               <div className="text-2xl sm:text-4xl mb-8 sm:mb-12 grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-125 inline-block">
                 {law.icon}
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white mb-4 sm:mb-6 uppercase tracking-tighter">
+              <h3 className="text-2xl sm:text-3xl font-black text-white mb-4 sm:mb-6 uppercase tracking-tighter group-hover:text-red-400 transition-colors">
                 {law.title}
               </h3>
-              <p className="text-zinc-500 text-base sm:text-lg leading-relaxed font-medium">
+              <p className="text-zinc-500 text-base sm:text-lg leading-relaxed font-medium group-hover:text-zinc-300 transition-colors">
                 {law.description}
               </p>
+              
+              {/* Applied indicator */}
+              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <span className="text-green-400 text-xs font-bold uppercase tracking-wider bg-green-400/10 px-2 py-1 rounded-full border border-green-400/20">
+                  Applied ✓
+                </span>
+              </div>
               
               <div className="absolute bottom-0 left-0 w-full h-[1px] sm:h-[2px] bg-red-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-700"></div>
             </div>
           ))}
           
-          <div className="reveal p-8 sm:p-16 bg-red-600 flex flex-col justify-between group text-left">
+          <div className="reveal p-8 sm:p-16 bg-red-600 flex flex-col justify-between group text-left hover-lift">
+             <div className="text-4xl mb-6">🎯</div>
              <h3 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tighter">
                Ready for precision?
              </h3>
              <p className="text-red-100 text-base sm:text-lg font-bold mb-8 sm:mb-10">We apply these laws to every project at REDWHISK.</p>
              <button 
                onClick={scrollToServices}
-               className="self-start px-6 sm:px-8 py-3 sm:py-4 bg-black text-white font-black uppercase text-[9px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] rounded-full hover:scale-105 transition-all shadow-xl active:scale-95"
+               className="self-start px-6 sm:px-8 py-3 sm:py-4 bg-black text-white font-black uppercase text-[9px] sm:text-[10px] tracking-[0.3em] sm:tracking-[0.4em] rounded-full hover:scale-105 transition-all shadow-xl active:scale-95 focus:outline-none focus:ring-2 focus:ring-white/50"
+               aria-label="View our services and methodology"
              >
                Our Method ↗
              </button>

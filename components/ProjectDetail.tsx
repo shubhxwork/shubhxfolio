@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { PROJECTS } from '../constants';
+import DriveVideoViewer from './DriveVideoViewer';
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -113,14 +114,24 @@ const ProjectDetail: React.FC = () => {
       </div>
 
       <section className="reveal w-full px-4 sm:px-6 md:px-12 lg:px-24 pb-32 sm:pb-48">
-         <div className="aspect-[16/9] sm:aspect-[21/9] w-full rounded-2xl sm:rounded-[4rem] overflow-hidden relative group">
+        {project.driveVideoUrl ? (
+          // Show Drive Video Viewer for video projects
+          <DriveVideoViewer 
+            driveUrl={project.driveVideoUrl}
+            title={project.title}
+            thumbnail={project.thumbnail}
+          />
+        ) : (
+          // Show static image for other projects
+          <div className="aspect-[16/9] sm:aspect-[21/9] w-full rounded-2xl sm:rounded-[4rem] overflow-hidden relative group">
             <img 
               src={project.thumbnail} 
               alt={`${project.title} showcase`}
               className="w-full h-full object-cover transition-all duration-[3s] group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-         </div>
+          </div>
+        )}
       </section>
     </div>
   );

@@ -4,10 +4,10 @@ import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProjectGrid from './components/ProjectGrid';
+import WorkSection from './components/WorkSection';
 import ServicesSection from './components/ServicesSection';
 import AIAssistant from './components/AIAssistant';
 import Footer from './components/Footer';
-import ProjectDetail from './components/ProjectDetail';
 import UXPrinciples from './components/UXPrinciples';
 import NotFound from './components/NotFound';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -27,7 +27,7 @@ const HomePage = () => (
     <Hero />
     
     <section id="work" className="py-24 sm:py-32 px-4 sm:px-6 md:px-12 lg:px-24">
-      <ProjectGrid />
+      <WorkSection />
     </section>
 
     <UXPrinciples />
@@ -124,7 +124,6 @@ const App: React.FC = () => {
           <Navbar />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/project/:id" element={<ProjectDetail />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />

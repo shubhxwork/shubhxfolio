@@ -54,10 +54,24 @@ const Navbar: React.FC = () => {
               onClick={(e) => {
                 e.preventDefault();
                 const targetId = item.toLowerCase();
-                const element = document.getElementById(targetId);
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Reset any active category/subcategory filters if clicking Work
+                if (targetId === 'work') {
+                  // Dispatch a custom event to reset work section filters
+                  window.dispatchEvent(new CustomEvent('resetWorkFilters'));
                 }
+                
+                // Small delay to allow any state resets to complete
+                setTimeout(() => {
+                  const element = document.getElementById(targetId);
+                  if (element) {
+                    element.scrollIntoView({ 
+                      behavior: 'smooth', 
+                      block: 'start',
+                      inline: 'nearest'
+                    });
+                  }
+                }, 100);
               }}
               className="px-10 py-3.5 text-[9px] font-black text-zinc-500 hover:text-white transition-all uppercase tracking-[0.2em] rounded-full hover:bg-white/5"
             >
@@ -115,10 +129,24 @@ const Navbar: React.FC = () => {
                     e.preventDefault();
                     setMobileMenuOpen(false);
                     const targetId = item.toLowerCase();
-                    const element = document.getElementById(targetId);
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Reset any active category/subcategory filters if clicking Work
+                    if (targetId === 'work') {
+                      // Dispatch a custom event to reset work section filters
+                      window.dispatchEvent(new CustomEvent('resetWorkFilters'));
                     }
+                    
+                    // Small delay to allow menu close and any state resets to complete
+                    setTimeout(() => {
+                      const element = document.getElementById(targetId);
+                      if (element) {
+                        element.scrollIntoView({ 
+                          behavior: 'smooth', 
+                          block: 'start',
+                          inline: 'nearest'
+                        });
+                      }
+                    }, 300);
                   }}
                   className="block text-4xl sm:text-5xl font-black text-white hover:text-red-600 transition-colors uppercase tracking-tighter"
                 >

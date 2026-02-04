@@ -1,8 +1,8 @@
 
 export type Category = 'UI/UX' | 'Web Apps' | 'Video Editing' | 'Graphics Design';
 
-export type VideoSubcategory = 'Vlogs' | 'Ads' | 'Motion Graphics' | 'Talking Head';
-export type GraphicsSubcategory = 'Thumbnails' | 'Logos';
+export type VideoSubcategory = 'Vlogs' | 'Ads' | 'Motion Graphics' | 'Talking Head' | 'Reels';
+export type GraphicsSubcategory = 'Channel Arts' | 'Logos' | 'Thumbnails';
 export type WebAppSubcategory = 'CalTrak App';
 
 export interface Project {
@@ -13,6 +13,9 @@ export interface Project {
   description: string;
   thumbnail: string;
   videoUrl?: string;
+  driveVideoUrl?: string; // Google Drive video URL
+  youtubeUrl?: string; // YouTube video URL
+  instagramUrl?: string; // Instagram reel/post URL
   liveUrl?: string; // Add live URL for web apps
   client?: string;
   year: string;

@@ -185,7 +185,7 @@
         }
       }
 
-      /* Animation Utilities */
+      /* Animation Utilities - Applied UX Laws */
       .reveal {
         opacity: 0;
         transform: translateY(40px);
@@ -194,6 +194,47 @@
       .reveal.active {
         opacity: 1;
         transform: translateY(0);
+      }
+
+      /* Slide in animation for subcategories - Applied Serial Position Effect */
+      @keyframes slideInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Micro-interactions for better feedback - Applied Doherty Threshold */
+      .hover-lift {
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .hover-lift:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Focus states for accessibility - Applied inclusive design */
+      button:focus-visible,
+      a:focus-visible {
+        outline: 2px solid #ff3333;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+
+      /* Loading states - Applied Goal-Gradient Effect */
+      .loading-shimmer {
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+      }
+
+      @keyframes shimmer {
+        0% { background-position: -200% 0; }
+        100% { background-position: 200% 0; }
       }
 
       /* Responsive improvements */
