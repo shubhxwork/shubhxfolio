@@ -148,24 +148,6 @@ export const UX_LAWS = [
 export const PROJECTS: Project[] = [
   // UI/UX Projects
   {
-    id: '1',
-    title: 'Pulse Fintech 2.0',
-    category: 'UI/UX',
-    description: 'Re-engineering digital wealth management with high-contrast data visualization and immersive micro-interactions. Applied Aesthetic-Usability Effect to drive user trust and Miller\'s Law for optimal information chunking.',
-    thumbnail: 'https://images.unsplash.com/photo-1614332287897-cdc485fa562d?auto=format&fit=crop&q=80&w=1200',
-    client: 'CyberBank',
-    year: '2025'
-  },
-  {
-    id: '4',
-    title: 'Sphere 3.0',
-    category: 'UI/UX',
-    description: 'A minimalist crypto wallet interface focusing on the Peak-End Rule for memorable experiences and Hick\'s Law to reduce decision complexity in critical financial transactions.',
-    thumbnail: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=1200',
-    client: 'Global Crypto',
-    year: '2023'
-  },
-  {
     id: '13',
     title: 'CalTrak Interface',
     category: 'UI/UX',
@@ -188,46 +170,18 @@ export const PROJECTS: Project[] = [
   
   // Web Apps Projects
   {
-    id: '2',
-    title: 'Aether Social',
-    category: 'Web Apps',
-    description: 'Next-gen social architecture featuring real-time collaborative spaces. Applied Law of Common Region for intuitive grouping and reduced Cognitive Load through progressive disclosure patterns.',
-    thumbnail: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=1200',
-    client: 'Aether Lab',
-    year: '2024'
-  },
-  {
-    id: '6',
-    title: 'TaskFlow Pro',
-    category: 'Web Apps',
-    description: 'Enterprise project management platform applying Pareto Principle for feature prioritization, Chunking for complex data organization, and Doherty Threshold for responsive interactions.',
-    thumbnail: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=1200',
-    client: 'FlowTech',
-    year: '2024'
-  },
-  {
     id: '12',
     title: 'CalTrak App',
     category: 'Web Apps',
     subcategory: 'CalTrak App',
     description: 'Advanced calorie tracking application leveraging Occam\'s Razor for simplified workflows, Law of Proximity for related data grouping, and Working Memory principles for efficient data input.',
-    thumbnail: '/images/projects/web-apps/caltrak-logo.png', // Will be the actual CalTrak logo
+    thumbnail: '/images/projects/web-apps/caltrak-logo.png',
     liveUrl: 'https://cal-trak-app.vercel.app/',
     client: 'Personal Project',
     year: '2025'
   },
   
   // Video Editing Projects
-  {
-    id: '3',
-    title: 'Kinetic 2024 Reel',
-    category: 'Video Editing',
-    subcategory: 'Ads',
-    description: 'High-octane commercial montage utilizing rhythmic cuts and custom sound design. Applied Serial Position Effect for maximum retention and Peak-End Rule for memorable brand impact.',
-    thumbnail: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=1200',
-    client: 'ActiveBrands',
-    year: '2024'
-  },
   {
     id: '7',
     title: 'James Symons Vlog1',
@@ -289,16 +243,6 @@ export const PROJECTS: Project[] = [
     year: '2024'
   },
   {
-    id: '9',
-    title: 'Brand Dynamics',
-    category: 'Video Editing',
-    subcategory: 'Motion Graphics',
-    description: 'Animated brand identity system with fluid transitions, kinetic typography, and particle effects.',
-    thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1200',
-    client: 'DynamicBrands',
-    year: '2024'
-  },
-  {
     id: '15',
     title: 'Viral Moments',
     category: 'Video Editing',
@@ -307,27 +251,6 @@ export const PROJECTS: Project[] = [
     thumbnail: 'https://drive.google.com/thumbnail?id=18A3ACaC7szofq7Q3edgRa94JjBm6kacj&sz=w1200-h675',
     driveVideoUrl: 'https://drive.google.com/file/d/18A3ACaC7szofq7Q3edgRa94JjBm6kacj/view?usp=sharing',
     client: 'Social Creators',
-    year: '2024'
-  },
-  {
-    id: '22',
-    title: 'Instagram Reel Showcase',
-    category: 'Video Editing',
-    subcategory: 'Reels',
-    description: 'Creative Instagram reel with trending effects, smooth transitions, and engaging visual storytelling.',
-    thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1200',
-    instagramUrl: 'https://www.instagram.com/p/SAMPLE_POST_ID/', // Replace with actual Instagram URL
-    client: 'Social Media',
-    year: '2024'
-  },
-  {
-    id: '17',
-    title: 'Brand Showcase',
-    category: 'Video Editing',
-    subcategory: 'Ads',
-    description: 'Professional brand advertisement with cinematic visuals and compelling storytelling for maximum engagement.',
-    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Replace with your actual YouTube URL
-    client: 'Brand Studios',
     year: '2024'
   },
   
@@ -343,16 +266,6 @@ export const PROJECTS: Project[] = [
     year: '2024'
   },
   {
-    id: '10',
-    title: 'Nexus Identity',
-    category: 'Graphics Design',
-    subcategory: 'Logos',
-    description: 'Complete brand identity system applying Law of Similarity for cohesive recognition, Aesthetic-Usability Effect for trust building, and Law of Prägnanz for memorable simplicity.',
-    thumbnail: 'https://images.unsplash.com/photo-1626785774625-ddcddc3445e9?auto=format&fit=crop&q=80&w=1200',
-    client: 'Nexus Corp',
-    year: '2024'
-  },
-  {
     id: '11',
     title: 'E-commerce Thumbnail',
     category: 'Graphics Design',
@@ -364,13 +277,33 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '16',
-    title: 'Creator Channel Branding',
+    title: 'Gaming Channel Banner',
     category: 'Graphics Design',
     subcategory: 'Channel Arts',
-    description: 'Complete YouTube channel branding package with custom banners, profile designs, and cohesive visual identity systems.',
-    thumbnail: 'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?auto=format&fit=crop&q=80&w=1200',
-    client: 'YouTube Creators',
-    year: '2024'
+    description: 'Dynamic gaming channel banner with bold typography and vibrant color schemes designed for maximum visual impact.',
+    thumbnail: '/images/projects/graphics-design/channel-arts/1610278458423.png',
+    client: 'Gaming Creator',
+    year: '2021'
+  },
+  {
+    id: '26',
+    title: 'Lifestyle Channel Art',
+    category: 'Graphics Design',
+    subcategory: 'Channel Arts',
+    description: 'Vibrant lifestyle channel banner featuring engaging visuals and compelling brand messaging for content discovery.',
+    thumbnail: '/images/projects/graphics-design/channel-arts/1616219888340.png',
+    client: 'Lifestyle Creator',
+    year: '2021'
+  },
+  {
+    id: '29',
+    title: 'Bolte Channel Banner',
+    category: 'Graphics Design',
+    subcategory: 'Channel Arts',
+    description: 'Custom channel banner design with personalized branding elements and optimized layout for YouTube platform.',
+    thumbnail: '/images/projects/graphics-design/channel-arts/banner done bolte.png',
+    client: 'Bolte',
+    year: '2021'
   },
   {
     id: '23',
@@ -381,6 +314,166 @@ export const PROJECTS: Project[] = [
     thumbnail: '/images/projects/thumbnails/thumb for faris.jpg',
     client: 'Faris',
     year: '2024'
+  },
+  {
+    id: '30',
+    title: 'Gaming Thumbnail Pack 1',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'High-energy gaming thumbnail with dynamic composition and vibrant colors designed to stand out in crowded feeds.',
+    thumbnail: '/images/projects/thumbnails/1577003552128.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '31',
+    title: 'Gaming Thumbnail Pack 2',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Action-packed gaming thumbnail featuring bold typography and strategic color psychology for maximum click-through rates.',
+    thumbnail: '/images/projects/thumbnails/1577003552967.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '32',
+    title: 'Gaming Thumbnail Pack 3',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Engaging gaming thumbnail with compelling visual elements and optimized layout for YouTube algorithm performance.',
+    thumbnail: '/images/projects/thumbnails/1577003558770.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '33',
+    title: 'Gaming Thumbnail Pack 4',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Dynamic gaming thumbnail applying Aesthetic-Usability Effect and Von Restorff principles for enhanced visibility.',
+    thumbnail: '/images/projects/thumbnails/1577003562412.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '34',
+    title: 'Gaming Thumbnail Pack 5',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'High-impact gaming thumbnail with strategic visual hierarchy and attention-grabbing design elements.',
+    thumbnail: '/images/projects/thumbnails/1577003647946.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '35',
+    title: 'Gaming Thumbnail Pack 6',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Professional gaming thumbnail featuring bold graphics and optimized composition for maximum engagement.',
+    thumbnail: '/images/projects/thumbnails/1577003698449.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '36',
+    title: 'Gaming Thumbnail Pack 7',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Eye-catching gaming thumbnail with vibrant color schemes and strategic placement of visual elements.',
+    thumbnail: '/images/projects/thumbnails/1577003736141.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '37',
+    title: 'Gaming Thumbnail Pack 8',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Compelling gaming thumbnail designed with Peak-End Rule principles for memorable brand impact.',
+    thumbnail: '/images/projects/thumbnails/1577003737278.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '38',
+    title: 'Gaming Thumbnail Pack 9',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'High-performance gaming thumbnail with optimized visual flow and attention-directing design elements.',
+    thumbnail: '/images/projects/thumbnails/1577003738308.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '39',
+    title: 'Gaming Thumbnail Pack 10',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Dynamic gaming thumbnail featuring strategic color psychology and compelling visual storytelling.',
+    thumbnail: '/images/projects/thumbnails/1577003739189.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '40',
+    title: 'Gaming Thumbnail Pack 11',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Professional gaming thumbnail with bold typography and optimized layout for YouTube platform success.',
+    thumbnail: '/images/projects/thumbnails/1577003740598.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '41',
+    title: 'Gaming Thumbnail Pack 12',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'High-conversion gaming thumbnail applying Fitts\'s Law principles for optimal click target effectiveness.',
+    thumbnail: '/images/projects/thumbnails/1577003743494.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '42',
+    title: 'Gaming Thumbnail Pack 13',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Engaging gaming thumbnail with strategic visual hierarchy and attention-grabbing composition elements.',
+    thumbnail: '/images/projects/thumbnails/1577003744626.jpg',
+    client: 'Gaming Channel',
+    year: '2019'
+  },
+  {
+    id: '43',
+    title: 'Content Creator Thumbnail',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Professional content creator thumbnail with clean design and strategic branding elements for channel growth.',
+    thumbnail: '/images/projects/thumbnails/1593861641283.jpg',
+    client: 'Content Creator',
+    year: '2020'
+  },
+  {
+    id: '44',
+    title: 'Tech Review Thumbnail',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Modern tech review thumbnail featuring clean typography and professional layout for technology content.',
+    thumbnail: '/images/projects/thumbnails/1612628214726.png',
+    client: 'Tech Channel',
+    year: '2021'
+  },
+  {
+    id: '45',
+    title: 'Educational Thumbnail',
+    category: 'Graphics Design',
+    subcategory: 'Thumbnails',
+    description: 'Educational content thumbnail with clear visual hierarchy and engaging design elements for learning content.',
+    thumbnail: '/images/projects/thumbnails/1620985843760.png',
+    client: 'Educational Channel',
+    year: '2021'
   }
 ];
 

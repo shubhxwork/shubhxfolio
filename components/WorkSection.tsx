@@ -223,26 +223,6 @@ const WorkSection: React.FC = () => {
           </div>
         )}
       </div>
-
-      {/* Stats Section */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mt-24 sm:mt-32 pt-16 sm:pt-24 border-t border-white/5">
-        <div className="text-center">
-          <h4 className="text-4xl sm:text-6xl font-black text-red-600 mb-2">{PROJECTS.length}+</h4>
-          <p className="text-zinc-600 uppercase text-[8px] sm:text-[9px] font-black tracking-widest">Total Projects</p>
-        </div>
-        <div className="text-center">
-          <h4 className="text-4xl sm:text-6xl font-black text-white mb-2">{WORK_CATEGORIES.length}</h4>
-          <p className="text-zinc-600 uppercase text-[8px] sm:text-[9px] font-black tracking-widest">Categories</p>
-        </div>
-        <div className="text-center">
-          <h4 className="text-4xl sm:text-6xl font-black text-white mb-2">50+</h4>
-          <p className="text-zinc-600 uppercase text-[8px] sm:text-[9px] font-black tracking-widest">Happy Clients</p>
-        </div>
-        <div className="text-center">
-          <h4 className="text-4xl sm:text-6xl font-black text-red-600 mb-2">99%</h4>
-          <p className="text-zinc-600 uppercase text-[8px] sm:text-[9px] font-black tracking-widest">Success Rate</p>
-        </div>
-      </div>
     </div>
   );
 };

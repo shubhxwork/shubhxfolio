@@ -34,9 +34,8 @@ const Footer: React.FC = () => {
              <p className="text-zinc-800 font-black uppercase tracking-[0.6em] sm:tracking-[0.8em] text-[8px] sm:text-[9px] mb-8 sm:mb-12">Digital Footprint</p>
              <div className="flex flex-col gap-4 sm:gap-6 text-4xl sm:text-5xl md:text-6xl font-black text-white uppercase tracking-tighter">
                {[
-                 { name: 'Instagram', url: 'https://instagram.com/' },
-                 { name: 'LinkedIn', url: 'https://linkedin.com/' },
-                 { name: 'Dribbble', url: 'https://dribbble.com/' }
+                 { name: 'Instagram', url: 'https://www.instagram.com/_shubhj_/' },
+                 { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shubham-jain-676591308/' }
                ].map(social => (
                  <a 
                    key={social.name} 
